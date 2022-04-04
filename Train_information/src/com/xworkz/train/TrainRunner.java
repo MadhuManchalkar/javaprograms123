@@ -1,6 +1,7 @@
 package com.xworkz.train;
 
 import com.xworkz.train.dao.TrainDAO;
+import com.xworkz.train.dao.TrainImplemation;
 import com.xworkz.train.dto.TrainDTO;
 import com.xworkz.train.dto.Type;
 
@@ -15,7 +16,7 @@ public class TrainRunner {
 		dto.setDestination("Bangalore");
 		dto.setType(Type.express);
         
-		TrainDAO dao=new TrainDAO();
+		TrainDAO dao=new TrainImplemation();
 		boolean created=dao.create(dto);
 		System.out.println(created);
 		
@@ -63,7 +64,56 @@ public class TrainRunner {
 		boolean created4=dao.create(dto4);
 		System.out.println(created4);
         
+		TrainDTO dto5=new TrainDTO();
+		dto5.setName("pooja");
+		dto5.setId(106);
+		dto5.setNumber("587319");
+		dto5.setStartingpoint("mudhol");
+		dto5.setDestination("Bangalore");
+		dto5.setType(Type.general);
+		boolean created5=dao.create(dto5);
+		System.out.println(created5);
 		
+		
+		TrainDTO dto6=new TrainDTO();
+		dto6.setName("rekha");
+		dto6.setId(107);
+		dto6.setNumber("587376");
+		dto6.setStartingpoint("bellary");
+		dto6.setDestination("bagalakot");
+		dto6.setType(Type.general);
+		boolean created6=dao.create(dto6);
+		System.out.println(created6);
+		
+		TrainDTO dto7=new TrainDTO();
+		dto7.setName("geeta");
+		dto7.setId(107);
+		dto7.setNumber("587319");
+		dto7.setStartingpoint("gulabarga");
+		dto7.setDestination("bangalore");
+		dto7.setType(Type.general);
+		boolean created7=dao.create(dto7);
+		System.out.println(created7);
+		
+		TrainDTO dto8=new TrainDTO();
+		dto8.setName("neela");
+		dto8.setId(105);
+		dto8.setNumber("587364");
+		dto8.setStartingpoint("bilagi");
+		dto8.setDestination("mudhol");
+		dto8.setType(Type.general);
+		boolean created8=dao.create(dto8);
+		System.out.println(created8);
+		
+		TrainDTO dto9=new TrainDTO();
+		dto9.setName("akshata");
+		dto9.setId(105);
+		dto9.setNumber("587124");
+		dto9.setStartingpoint("badami");
+		dto9.setDestination("mandya");
+		dto9.setType(Type.general);
+		boolean created9=dao.create(dto9);
+		System.out.println(created9);
 		
 		
 		TrainDTO findbyStratinpoint=dao.findbyStratinpoint("badami");
@@ -75,11 +125,31 @@ public class TrainRunner {
 		boolean m=dao.ispresent(dto);
 		System.out.println(m);
 		
+		TrainDTO findbynumber=dao.findbyNumber("587315");
+		System.out.println(findbynumber);
 		
 		
+		 
+		TrainDTO dtoupdate=new  TrainDTO();
+		dtoupdate.setName("ramu");
+		dtoupdate.setDestination("bagalakot");
+		dtoupdate.setNumber("587121");
+		dtoupdate.setId(101);
+		dtoupdate.setType(Type.general);
 		
-      
-      
+		
+		TrainImplemation  implemation=(TrainImplemation) dao;
+		implemation.updatebyPersonName("mahendra",dtoupdate);
+		
+		int m1=dao.totaltrains();
+	
+		System.out.println(m1);
+		
+		
+        System.out.println("total before delete "+implemation.gettotal());
+		implemation.deletbyPersonName("neela");
+		System.out.println("total after delete "+implemation.gettotal());
+		
 	}
 
 }

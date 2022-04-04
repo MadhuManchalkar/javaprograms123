@@ -2,19 +2,29 @@ package com.xworkz.train.dao;
 
 import com.xworkz.train.dto.TrainDTO;
 
-public class TrainDAO {
+public abstract class TrainDAO {
 
-	TrainDTO[] traindtos=new TrainDTO[10];
-	int trainindex=0;
-    public boolean create(TrainDTO dto)
+	private TrainDTO[] traindtos=new TrainDTO[10];
+    private	int trainindex=0;
+    public int getTrainindex() {
+		return trainindex;
+	}
+
+	public void setTrainindex(int trainindex) {
+		this.trainindex = trainindex;
+	}
+
+	public  boolean create(TrainDTO dto)
     {
     	System.out.println("invoked the method".concat(dto.toString()));
 	      
 		 if(trainindex<traindtos.length && !this.ispresent(dto))
 		{
 			this.traindtos[trainindex]=dto;
+				 int a=10;
 			trainindex++;
 			return true;
+			
 		}
 		else
 		{
@@ -25,8 +35,15 @@ public class TrainDAO {
 	   return false;
     }
      
-     
-     public TrainDTO findbyStratinpoint(String startingpoint)
+      public TrainDTO[] getTraindtos() {
+		return traindtos;
+	}
+
+       public void setTraindtos(TrainDTO[] traindtos) {
+		this.traindtos = traindtos;
+	}
+
+       public TrainDTO findbyStratinpoint(String startingpoint)
      {
     	 for(int i=0;i<traindtos.length;i++)
     	 {
@@ -65,6 +82,20 @@ public class TrainDAO {
     	 }
     	 return  null;
      }
+     public TrainDTO findbyNumber(String number)
+     {
+    	 for(int m=0;m<=traindtos.length;m++)
+    	 {
+    		 if(traindtos[m].getNumber().equals(number))
+    		 {
+    			 System.out.println("find by number");
+    			 
+    			 return  traindtos[m];
+    		 }
+    	 }
+    	 return  null;
+     }
+     
      
     public boolean ispresent(TrainDTO dto)
     {
@@ -84,4 +115,39 @@ public class TrainDAO {
     	
     }
     
+    public int totaltrains()
+    {
+    	int k=0;
+    	for(int index=0;index<traindtos.length;index++)
+    	{
+    		if(traindtos[index]!=null)
+    		{
+    			k++;
+    		}
+    	}
+    	System.out.println("total number of trains");
+    	return k;
+    }
+      public int gettotal()
+      {
+    	 
+    	  int k=0;
+    	  for(int i=0;i<traindtos.length;i++)
+    	  {
+    	
+    		    if( traindtos[i]!=null)
+    		    {
+    		      if(traindtos[i].getName()!=null)
+    		       {
+    			     	k++;
+    			   }
+    		  
+    		      }
+    	}
+    	  return k;
+    	  
+      }
 }
+
+
+
