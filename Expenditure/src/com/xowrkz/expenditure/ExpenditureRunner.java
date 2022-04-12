@@ -166,11 +166,23 @@ public class ExpenditureRunner {
 		dto19.setAmount(50000);
 		dto19.setExpenditurePeriod(ExpenditurePeriod.WEEKLY);
 		dao.create(dto19);
-	
+	    String s1="madhu";
+	    String s2="madhu";
+	    if(s1==s2)
+	    {
+	    	System.out.print("String method");
+	    	System.out.print("true");
+	    }
+	    else
+	    {
+	    	System.out.print("String method");
+	    	System.out.print("false");
+	    }
 		
 		
 		
 		
 	}
+	
 
 }

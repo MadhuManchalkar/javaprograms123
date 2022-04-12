@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Tstng cases">
+<test name="testcases">
+<classes>
+<class name="TestNg_Products.Products12"></class>
+<class name="TestNg_Users.Users"></class>
+
+
+</classes>
+
+
+
+</test>
+
+
+</suite>
