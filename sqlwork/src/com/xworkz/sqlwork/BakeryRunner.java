@@ -19,7 +19,7 @@ public class BakeryRunner {
 			Connection connection=DriverManager.getConnection(url, username, password);
 			System.out.println(connection);
 			
-			String insertQuery="INSERT INTO  Bakery_details VALUES(1,2,'Golden Bakery',9148302612),(2,3,'moms Bakery',9148302625),(3,7,'Cake art',9148302621),(4,5,'Cherry on top ',9148302623),(5,8,'corner bekary cafe',9148302622)";
+			String insertQuery="INSERT INTO  Bakery_details VALUES(10,2,'Golden Bakery',9148302612),(20,3,'moms Bakery',9148302625),(30,7,'Cake art',9148302621),(40,5,'Cherry on top ',9148302623),(50,8,'corner bekary cafe',9148302622)";
 			Statement statement=connection.createStatement();
 			int rows=statement.executeUpdate(insertQuery);
 			System.out.println(rows);
